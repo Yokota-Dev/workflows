@@ -1,9 +1,6 @@
 name: Deploy Production
 on:
   workflow_call:
-    secrets:
-      TEST:
-        required: true
 
 jobs:
   deploy:
@@ -17,7 +14,7 @@ jobs:
           ref: main
 
       - name: Testing secrets
-        run: echo ${{ secrets.TEST }}
+        run: echo "${{ secrets.TEST }}"
 
       - name: Bump version and push tag
         id: tag_version
