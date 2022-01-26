@@ -16,10 +16,16 @@ jobs:
         with:
           ref: main
 
-      - name: Testing secrets
+      - name: Testing set env
+        uses: ./.github/actions/set-env-vars
+        with:
+          environment: development
+      
+      - name: Testing env setted
         run: |
-          echo "${{ secrets.TEST }}"
-          echo "${{ github.ref_name }}"
+          echo "${aws_profile}"
+          echo "${aws_account_id}"
+          echo "${short_env}"
 
       - name: Bump version and push tag
         id: tag_version
