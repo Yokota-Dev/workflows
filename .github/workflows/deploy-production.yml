@@ -18,9 +18,23 @@ jobs:
 
       - name: Testing set env
         run: |
-          profile=$([ ${{ github.ref_name }} = "main" ] && "production" || "development" )
-          echo "aws_profile=$profile"
-      
+          case $GITHUB_REF_NAME in
+            develop)
+              echo "aws_profile=development" >> $GITHUB_ENV
+              echo "aws_role_arn=arn:aws:iam::822236045867:role/cicd" >> $GITHUB_ENV
+              echo "short_env=dev" >> $GITHUB_ENV
+            ;;
+            release)
+              echo "aws_profile=release" >> $GITHUB_ENV
+              echo "aws_role_arn=arn:aws:iam::453497214348:role/cicd" >> $GITHUB_ENV
+              echo "short_env=release" >> $GITHUB_ENV
+            ;;
+            main)
+              echo "aws_profile=production" >> $GITHUB_ENV
+              echo "aws_role_arn=arn:aws:iam::140981404942:role/cicd" >> $GITHUB_ENV
+              echo "short_env=prod" >> $GITHUB_ENV
+          esac
+
       - name: Testing env setted
         run: |
           echo "${aws_profile}"
