@@ -38,7 +38,7 @@ jobs:
       - name: Testing env setted
         run: |
           echo $aws_profile
-          echo $aws_account_id
+          echo $aws_role_arn
           echo $short_env
 
       - name: Bump version and push tag
