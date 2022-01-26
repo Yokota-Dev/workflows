@@ -17,8 +17,9 @@ jobs:
           ref: main
 
       - name: Testing secrets
-        run: echo "${{ secrets.TEST }}"
-        run: echo "${GITHUB_REF}"
+        run: |
+          echo "${{ secrets.TEST }}"
+          echo "${GITHUB_REF}"
 
       - name: Bump version and push tag
         id: tag_version
