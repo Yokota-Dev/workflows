@@ -17,7 +17,7 @@ jobs:
           ref: main
 
       - name: Testing set env
-        uses: ./.github/actions/set-env-vars
+        uses: ./.github/actions/set-env-vars.yml
         with:
           environment: development
       
