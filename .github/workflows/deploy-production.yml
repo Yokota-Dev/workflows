@@ -17,9 +17,9 @@ jobs:
           ref: main
 
       - name: Testing set env
-        uses: ./.github/actions/set-env-vars.yml
-        with:
-          environment: development
+        run: |
+          profile=$([ ${{ github.ref_name }} = "main" ] && "production" || "development" )
+          echo "aws_profile=$profile"
       
       - name: Testing env setted
         run: |
