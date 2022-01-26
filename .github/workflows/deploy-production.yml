@@ -19,7 +19,7 @@ jobs:
       - name: Testing secrets
         run: |
           echo "${{ secrets.TEST }}"
-          echo "${{ github.ref }}"
+          echo "${{ github.ref_name }}"
 
       - name: Bump version and push tag
         id: tag_version
