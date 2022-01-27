@@ -23,11 +23,12 @@ runs:
   using: "composite"
   steps:
     - name: Set Enviroment Variables
+      id: get_env_vars
       shell: bash
       run: |
         case ${{ inputs.environment }} in
           development)
-            echo "::set-output name=aws_role_arn::arn:aws:iam::822236045867:role/cicd"
+            echo "::set-output name=aws_role_arn::'arn:aws:iam::822236045867:role/cicd'"
             echo "::set-output name=aws_profile::development"
             echo "::set-output name=short_env::dev"
           ;;
