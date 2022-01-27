@@ -23,6 +23,7 @@ runs:
   using: "composite"
   steps:
     - name: Set Enviroment Variables
+      shell: bash
       run: |
         case ${{ inputs.environment }} in
           development)
