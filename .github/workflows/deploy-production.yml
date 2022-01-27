@@ -24,6 +24,6 @@ jobs:
 
       - name: Testing env setted
         run: |
-          echo ${{ env_vars.aws_role_arn }}
-          echo ${{ env_vars.aws_profile }}
-          echo ${{ env_vars.short_env }}
+          echo ${{ steps.env_vars.outputs.aws_role_arn }}
+          echo ${{ steps.env_vars.outputs.aws_profile }}
+          echo ${{ steps.env_vars.outputs.short_env }}
