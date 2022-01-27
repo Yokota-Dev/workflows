@@ -18,7 +18,7 @@ jobs:
 
       - name: Testing set env
         id: env_vars
-        uses: ./.github/actions/get-environment-variables
+        uses: Yokota-Dev/workflows/.github/actions/get-environment-variables@main
         with:
           environment: development
 
